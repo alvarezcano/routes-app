@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <select class="form-control mb-3" [(ngModel)]="rutaSeleccionadaId">
+    <option *ngFor="let ruta of rutas" [value]="ruta.id">{{ ruta.nombre }}</option>
+  </select>
+
+  <table class="table table-bordered text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>Día</th>
+        <th>Ida</th>
+        <th>Regreso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of rutaSeleccionada?.horarios">
+        <td>{{ h.dias }}</td>
+        <td>{{ h.ida.join(', ') }}</td>
+        <td>{{ h.regreso.join(', ') }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
